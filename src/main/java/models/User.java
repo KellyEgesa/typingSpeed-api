@@ -17,6 +17,17 @@ public class User {
         this.email = email;
         this.password = password;
     }
+    public User(String email, String password){
+        this.email = email;
+        this.password = password;
+    }
+    public User(String typingProficiency){
+        this.typingProficiency = typingProficiency;
+    }
+    public User(int wordsPerMinute){
+        this.wordsPerMinute = wordsPerMinute;
+
+    }
 
     public String getUserName() {
         return userName;
