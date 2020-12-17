@@ -8,7 +8,7 @@ import java.util.List;
 public class Sql2oUser implements UserDao {
     @Override
     public List<User> getAllUsers() {
-        String sql = "SELECT * FROM users";
+        String sql = "SELECT id, userName, email, wordsPerMinute, typingProficiency FROM users";
         try (Connection con = DB.sql2o.open()) {
             return con.createQuery(sql)
                     .executeAndFetch(User.class);
@@ -17,7 +17,7 @@ public class Sql2oUser implements UserDao {
 
     @Override
     public User getUserById(int id) {
-        String sql = "SELECT * FROM users WHERE id = :id";
+        String sql = "SELECT id,userName, email, wordsPerMinute, typingProficiency FROM users WHERE id = :id";
         try (Connection con = DB.sql2o.open()) {
             return con.createQuery(sql)
                     .addParameter("id", id)
